@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburguesas Comunicativas - ¡Te ponen a hablar!</title>
+    <!-- Tailwind CSS para el diseño moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons para iconos limpios y modernos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Cabinet Grotesk / Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .accent-font {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Animaciones personalizadas */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f59e0b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/90 border-b border-slate-900/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="p-2.5 bg-amber-500 text-slate-950 rounded-2xl shadow-lg shadow-amber-500/20 transform group-hover:scale-110 transition-transform">
+                        <i data-lucide="message-square" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-extrabold tracking-tight leading-none text-white group-hover:text-amber-400 transition-colors">
+                            Hamburguesas
+                        </span>
+                        <span class="accent-font text-amber-500 text-sm font-bold tracking-wide italic">
+                            Comunicativas
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Nav Links -->
+                <div class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide">
+                    <a href="#experiencia" class="text-slate-300 hover:text-amber-400 transition-colors">La Experiencia</a>
+                    <a href="#ingredientes" class="text-slate-300 hover:text-amber-400 transition-colors">Ingredientes Secretos</a>
+                    <a href="#carta" class="text-slate-300 hover:text-amber-400 transition-colors">Menú</a>
+                    <a href="#pedido" class="text-slate-300 hover:text-amber-400 transition-colors">Pide por WhatsApp</a>
+                </div>
+
+                <!-- CTA Instagram -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.instagram.com/hamburguesas.elgaraje/?hl=es" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-pink-600 to-amber-500 hover:from-pink-500 hover:to-amber-400 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg shadow-pink-500/20">
+                        <i data-lucide="instagram" class="w-4 h-4 mr-2"></i>
+                        Instagram
+                    </a>
+                    <a href="#pedido" class="inline-flex items-center px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 transform hover:-translate-y-0.5">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 mr-2"></i>
+                        ¡Quiero Hablar!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden pt-12 pb-24 md:py-32 flex items-center min-h-[90vh]">
+        <!-- Decorative glowing effects -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Columna Texto -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                        <span class="text-xs font-bold uppercase tracking-widest">¿Por qué tan callado?</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white leading-none tracking-tight">
+                        La hamburguesa que <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 accent-font italic font-medium">
+                            te pone a hablar
+                        </span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        ¿Cansado de cenas aburridas y silenciosas? Nuestras hamburguesas tienen una fórmula mágica de ingredientes seleccionados que estimulan tus sentidos, activan tu creatividad y <strong class="text-amber-400 font-semibold">te garantizan horas de risas y conversaciones legendarias</strong>. ¡Pruébalas y compruébalo tú mismo!
+                    </p>
+
+                    <!-- Acciones Rápidas -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#pedido" class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base shadow-xl shadow-amber-500/20 transition-all transform hover:-translate-y-1">
+                            <i data-lucide="message-square" class="w-5 h-5 mr-2"></i>
+                            Ordenar & Charlar Ahora
+                        </a>
+                        <a href="https://www.instagram.com/hamburguesas.elgaraje/?hl=es" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold text-base transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5 mr-2 text-pink-500"></i>
+                            Visitar El Garaje
+                        </a>
+                    </div>
+
+                    <!-- Métricas divertidas -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-900 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <span class="block text-3xl font-extrabold text-amber-500">100%</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Elocuencia</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-extrabold text-amber-500">0%</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Silencios Incómodos</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-extrabold text-amber-500">10k+</span>
+                            <span class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Charlas Iniciadas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Imagen (Provided Asset) -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/10 border border-slate-900 group">
+                        <!-- Imagen Principal -->
+                        <img 
+                            src="deliciosa-hamburguesa-estudio_23-2151846494.avif" 
+                            alt="La hamburguesa comunicativa premium en estudio" 
+                            class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                        >
+                        <!-- Overlay Informativo -->
+                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-6 flex flex-col justify-end">
+                            <span class="text-xs font-bold tracking-wider text-amber-400 uppercase">Edición de Gala</span>
+                            <h3 class="text-xl font-bold text-white mt-1">La Comunicativa Suprema</h3>
+                            <p class="text-xs text-slate-300 mt-2">Doble carne Angus, queso cheddar desbordante, vegetales frescos y nuestra salsa secreta del debate.</p>
+                        </div>
+                        <!-- Efecto de Luz Flotante -->
+                        <div class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-amber-500/30 text-amber-400 text-xs font-bold uppercase py-2 px-3.5 rounded-xl flex items-center space-x-1.5 animate-bounce">
+                            <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-500"></i>
+                            <span>¡Súper Jugosa!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seccion 2: Menú de Ingredientes Interactivo (Persuasión de Ingredientes) -->
+    <section id="ingredientes" class="py-24 bg-slate-900/30 border-y border-slate-900/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">La Anatomía del Sabor</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">¿Qué las hace tan conversadoras?</h2>
+                <p class="text-slate-400 mt-4">
+                    Cada ingrediente de las Hamburguesas Comunicativas ha sido seleccionado no solo por su increíble sabor, sino por su asombrosa capacidad de soltarte la lengua y despertar tu chispa social. ¡Haz clic para descubrir su secreto!
+                </p>
+            </div>
+
+            <!-- Dashboard de Ingredientes Interactivo -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Columna Selector (Botones/Lista) -->
+                <div class="lg:col-span-5 flex flex-col justify-center space-y-3">
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 pl-2">Selecciona un ingrediente:</p>
+                    
+                    <!-- Ingrediente 1 -->
+                    <button 
+                        onclick="selectIngredient('carne')" 
+                        id="btn-carne" 
+                        class="ingredient-btn w-full text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-amber-500/10 border-amber-500 text-white"
+                    >
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl">🥩</span>
+                            <div>
+                                <h4 class="font-bold text-sm">Carne Angus "Elocuente"</h4>
+                                <p class="text-xs text-amber-400/80">El núcleo de la conversación</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-amber-400"></i>
+                    </button>
+
+                    <!-- Ingrediente 2 -->
+                    <button 
+                        onclick="selectIngredient('pan')" 
+                        id="btn-pan" 
+                        class="ingredient-btn w-full text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-slate-950/40 border-slate-900 hover:border-slate-800 text-slate-300"
+                    >
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl">🍞</span>
+                            <div>
+                                <h4 class="font-bold text-sm">Pan Brioche "Rompehielos"</h4>
+                                <p class="text-xs text-slate-500">Mantequilla, suavidad y simpatía</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600"></i>
+                    </button>
+
+                    <!-- Ingrediente 3 -->
+                    <button 
+                        onclick="selectIngredient('queso')" 
+                        id="btn-queso" 
+                        class="ingredient-btn w-full text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-slate-950/40 border-slate-900 hover:border-slate-800 text-slate-300"
+                    >
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl">🧀</span>
+                            <div>
+                                <h4 class="font-bold text-sm">Cheddar "El Chismoso"</h4>
+                                <p class="text-xs text-slate-500">La unión cremosa de las ideas</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600"></i>
+                    </button>
+
+                    <!-- Ingrediente 4 -->
+                    <button 
+                        onclick="selectIngredient('tocineta')" 
+                        id="btn-tocineta" 
+                        class="ingredient-btn w-full text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-slate-950/40 border-slate-900 hover:border-slate-800 text-slate-300"
+                    >
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl">🥓</span>
+                            <div>
+                                <h4 class="font-bold text-sm">Tocineta "Murmuradora"</h4>
+                                <p class="text-xs text-slate-500">Crujiente de chistes y anécdotas</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600"></i>
+                    </button>
+
+                    <!-- Ingrediente 5 -->
+                    <button 
+                        onclick="selectIngredient('salsa')" 
+                        id="btn-salsa" 
+                        class="ingredient-btn w-full text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-slate-950/40 border-slate-900 hover:border-slate-800 text-slate-300"
+                    >
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl">🍯</span>
+                            <div>
+                                <h4 class="font-bold text-sm">Salsa Secreta "El Debate"</h4>
+                                <p class="text-xs text-slate-500">Sabor intenso que despierta debates</p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600"></i>
+                    </button>
+                </div>
+
+                <!-- Columna Despliegue de Información (Persuasiva con transiciones) -->
+                <div class="lg:col-span-7 flex flex-col justify-between bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 p-8 rounded-3xl relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <div id="ingredient-display" class="space-y-6 transition-all duration-300 opacity-100">
+                        <div class="flex items-center justify-between">
+                            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                                <span id="ing-category">🥩 PROTEÍNA PREMIUM</span>
+                            </div>
+                            <span id="ing-emoji" class="text-5xl animate-float">🥩</span>
+                        </div>
+
+                        <h3 id="ing-title" class="text-3xl font-extrabold text-white accent-font">
+                            Carne Angus "Elocuente" (150g)
+                        </h3>
+
+                        <p id="ing-desc" class="text-slate-300 text-base leading-relaxed">
+                            Nuestra carne de res seleccionada cuenta con una maduración perfecta que intensifica los umami. Al morderla, se liberan jugos tan deliciosos que estimulan instantáneamente las glándulas de la creatividad y de la risa. ¡Imposible quedarte callado con semejante banquete en boca!
+                        </p>
+
+                        <!-- Panel de Datos Curiosos / Persuasión -->
+                        <div class="bg-slate-950/80 border border-slate-800/80 p-5 rounded-2xl space-y-3">
+                            <h5 class="text-xs font-bold text-amber-500 uppercase tracking-widest flex items-center">
+                                <i data-lucide="lightbulb" class="w-4 h-4 mr-2"></i> Efecto Comunicativo Asegurado:
+                            </h5>
+                            <p id="ing-effect" class="text-xs text-slate-400 leading-relaxed">
+                                Aporta el hierro y la proteína necesarios para gesticular con máxima energía mientras relatas tu última aventura o debates por qué las papas a la francesa van con salsa de ajo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Botón de conversión rápida dentro del menú -->
+                    <div class="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center space-x-3 text-slate-400">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-amber-500"></i>
+                            <span class="text-xs font-semibold">Garantía de sabor & risas al 100%</span>
+                        </div>
+                        <a href="#pedido" class="text-xs font-bold text-amber-500 hover:text-amber-400 flex items-center group transition-colors">
+                            ¡Quiero probar este ingrediente!
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion 3: Carta de Hamburguesas -->
+    <section id="carta" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold tracking-widest text-amber-500 uppercase">La Colección del Diálogo</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">Nuestras Estrellas</h2>
+            <p class="text-slate-400 mt-4">Escoge tu nivel de elocuencia preferido. Cada una incluye papas rústicas crujientes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Hamburguesa 1 -->
+            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-900 hover:border-slate-800 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/5 group">
+                <div>
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-6">
+                        <img src="deliciosa-hamburguesa-estudio_23-2151846494.avif" alt="La Rompehielos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md text-amber-500 font-bold text-xs px-3 py-1 rounded-lg">Nivel: Charlador Novato</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-bold text-white">La Rompehielos 🧊🔨</h3>
+                        <span class="text-amber-500 font-extrabold text-lg">$28.900</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                        La hamburguesa perfecta para tu primera cita. Suaviza tensiones con queso Cheddar cremoso, pan brioche humedecido en mantequilla de ajo, carne Angus y vegetales frescos.
+                    </p>
+                </div>
+                <button onclick="seleccionarEnCheckout('La Rompehielos', 28900)" class="w-full py-3 rounded-xl bg-slate-950 hover:bg-amber-500 hover:text-slate-950 border border-slate-800 hover:border-amber-500 text-slate-300 font-bold text-xs uppercase tracking-wider transition-all">
+                    Añadir al Pedido
+                </button>
+            </div>
+
+            <!-- Hamburguesa 2 -->
+            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-amber-500/30 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/10 relative group">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-amber-500 text-slate-950 font-black text-[10px] uppercase px-4 py-1 rounded-full tracking-widest shadow-lg">
+                    🔥 La Más Vendida
+                </div>
+                <div>
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMv1-dtZDzGB9d_fIO7h1K1G64huNnx-kQ7g&s" alt="La Monólogo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-110">
+                        <span class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md text-amber-500 font-bold text-xs px-3 py-1 rounded-lg">Nivel: Locuacidad Extrema</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-bold text-white">La Monólogo Bacon 🥓🗣️</h3>
+                        <span class="text-amber-500 font-extrabold text-lg">$34.900</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                        ¡No te cansarás de hablar! Doble tocineta ahumada crujiente, queso suizo fundido, nuestra salsa barbacoa secreta de Jack Daniel's y carne premium seleccionada de la casa.
+                    </p>
+                </div>
+                <button onclick="seleccionarEnCheckout('La Monólogo Bacon', 34900)" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition-all shadow-md">
+                    Añadir al Pedido
+                </button>
+            </div>
+
+            <!-- Hamburguesa 3 -->
+            <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-900 hover:border-slate-800 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/5 group">
+                <div>
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-6">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2zex_u-6DM86Bj8Y30kvXoxOLx5H36G-WrA&s" alt="El Debate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md text-amber-500 font-bold text-xs px-3 py-1 rounded-lg">Nivel: Filósofo Ilustrado</span>
+                    </div>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-bold text-white">El Gran Debate Doble 🍔🍔</h3>
+                        <span class="text-amber-500 font-extrabold text-lg">$39.900</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-6">
+                        Para campeones de la palabra. Doble carne Angus, doble Cheddar derretido, cebolla caramelizada al vino, champiñones salteados y mayonesa trufada secreta.
+                    </p>
+                </div>
+                <button onclick="seleccionarEnCheckout('El Gran Debate Doble', 39900)" class="w-full py-3 rounded-xl bg-slate-950 hover:bg-amber-500 hover:text-slate-950 border border-slate-800 hover:border-amber-500 text-slate-300 font-bold text-xs uppercase tracking-wider transition-all">
+                    Añadir al Pedido
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion 4: Formulario de Pedidos por WhatsApp (Interacción Avanzada) -->
+    <section id="pedido" class="py-24 bg-slate-900/40 border-y border-slate-900 relative">
+        <div class="absolute top-1/3 right-10 w-72 h-72 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Columna Informativa de Pedidos -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                        <i data-lucide="phone-call" class="w-3.5 h-3.5 mr-1.5"></i> Pedidos Rápidos por WhatsApp
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-none">
+                        ¡Arma tu pedido <br><span class="text-amber-500 accent-font italic font-medium">al instante!</span>
+                    </h2>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Selecciona tu hamburguesa preferida, agrega tus datos de envío, y te generaremos automáticamente un mensaje estructurado y listo para enviar. Nuestro equipo de atención te responderá en minutos para confirmar y despachar la elocuencia a tu casa.
+                    </p>
+
+                    <!-- Beneficios -->
+                    <div class="space-y-3 pt-4">
+                        <div class="flex items-center space-x-3 text-xs text-slate-300">
+                            <div class="p-1 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                            </div>
+                            <span>Entrega caliente en menos de 45 minutos.</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs text-slate-300">
+                            <div class="p-1 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400">
+                                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            </div>
+                            <span>Domicilio gratis en zona norte y centro de Bucaramanga.</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs text-slate-300">
+                            <div class="p-1 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            </div>
+                            <span>Soporte personalizado en directo.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario Dinámico / Cotizador -->
+                <div class="lg:col-span-7 bg-slate-950 border border-slate-900 p-8 rounded-3xl shadow-xl shadow-amber-500/[0.02]">
+                    <h3 class="text-lg font-bold text-white mb-6 flex items-center">
+                        <i data-lucide="notepad-text" class="w-5 h-5 text-amber-400 mr-2"></i> Configura tu Mesa del Debate
+                    </h3>
+
+                    <form id="whatsappForm" onsubmit="enviarPedidoWhatsApp(event)" class="space-y-6">
+                        <!-- Combo Selector -->
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">1. Selecciona tu Hamburguesa</label>
+                            <select id="burger-select" onchange="actualizarPrecioTotal()" class="w-full text-sm bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-slate-200">
+                                <option value="" data-price="0">-- Elige tu fórmula de charla --</option>
+                                <option value="La Rompehielos 🧊🔨" data-price="28900">La Rompehielos ($28.900)</option>
+                                <option value="La Monólogo Bacon 🥓🗣️" data-price="34900">La Monólogo Bacon ($34.900)</option>
+                                <option value="El Gran Debate Doble 🍔🍔" data-price="39900">El Gran Debate Doble ($39.900)</option>
+                            </select>
+                        </div>
+
+                        <!-- Adiciones -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">2. Bebida</label>
+                                <select id="drink-select" onchange="actualizarPrecioTotal()" class="w-full text-sm bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-slate-200">
+                                    <option value="Sin bebida" data-price="0">Ninguna</option>
+                                    <option value="Gaseosa 350ml" data-price="3500">Gaseosa ($3.500)</option>
+                                    <option value="Té de la casa" data-price="4500">Té de la casa ($4.500)</option>
+                                    <option value="Cerveza Artesana" data-price="7000">Cerveza Club Colombia ($7.000)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">3. Adicionales</label>
+                                <select id="extra-select" onchange="actualizarPrecioTotal()" class="w-full text-sm bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-slate-200">
+                                    <option value="Sin adicionales" data-price="0">Ninguno</option>
+                                    <option value="Extra de Tocineta" data-price="4000">Extra Tocineta ($4.000)</option>
+                                    <option value="Doble Queso" data-price="3000">Doble Cheddar ($3.000)</option>
+                                    <option value="Papas rústicas extra" data-price="6000">Extra Papas ($6.000)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Datos del Comensal -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-900">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Tu Nombre</label>
+                                <input id="order-name" type="text" required placeholder="Ej: Pedro Infante" class="w-full text-sm bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-200">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider">Dirección de Envío</label>
+                                <input id="order-address" type="text" required placeholder="Ej: Calle 36 #24-50 Bucaramanga" class="w-full text-sm bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-200">
+                            </div>
+                        </div>
+
+                        <!-- Totalizador en vivo -->
+                        <div class="bg-slate-900/60 border border-slate-900 p-4 rounded-2xl flex items-center justify-between">
+                            <div>
+                                <span class="block text-xs text-slate-500 uppercase tracking-widest font-semibold">Total Estimado</span>
+                                <span id="total-display" class="text-2xl font-black text-amber-500">$0 COP</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="inline-block px-2 py-1 rounded bg-amber-500/10 border border-amber-500/20 text-[10px] font-bold text-amber-400 uppercase tracking-widest">Pago contra entrega</span>
+                            </div>
+                        </div>
+
+                        <!-- Botón Enviar -->
+                        <button type="submit" class="w-full inline-flex justify-center items-center px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base shadow-lg shadow-emerald-600/15 transition-all transform hover:-translate-y-0.5">
+                            <i data-lucide="message-square-more" class="w-5 h-5 mr-2"></i>
+                            Enviar Pedido al WhatsApp de El Garaje
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion 5: Instagram Campaign & Banner -->
+    <section class="py-16 bg-slate-950 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-pink-900/30 via-amber-900/10 to-slate-900/30 border border-pink-500/20 rounded-3xl p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="absolute -top-12 -left-12 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="space-y-4 max-w-xl text-center md:text-left">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider">
+                        <i data-lucide="instagram" class="w-3.5 h-3.5 mr-1.5"></i> Instagram Oficial
+                    </span>
+                    <h3 class="text-2xl sm:text-4xl font-extrabold text-white">Únete a la comunidad de El Garaje</h3>
+                    <p class="text-slate-400 text-sm">
+                        ¿Has probado una Hamburguesa Comunicativa? Sube una foto o video del antes y después de tu elocuencia, etiqueta a <strong class="text-pink-400">@hamburguesas.elgaraje</strong> y recibe 15% de descuento en tu próximo pedido.
+                    </p>
+                </div>
+
+                <div class="flex-shrink-0">
+                    <a href="https://www.instagram.com/hamburguesas.elgaraje/?hl=es" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-slate-950 font-black text-sm uppercase tracking-wider transition-all shadow-xl hover:-translate-y-0.5">
+                        <i data-lucide="external-link" class="w-4 h-4 mr-2 text-pink-600"></i>
+                        Ir a @hamburguesas.elgaraje
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion 6: Formulario de Contacto General / Eventos -->
+    <section id="contacto" class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-900 p-8 sm:p-12 rounded-3xl relative">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">¿Quieres un Evento Comunicativo?</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Hablemos de Negocios o Eventos</h3>
+                <p class="text-slate-400 text-xs mt-2">Llevamos el camión de las Hamburguesas Comunicativas a tus cumpleaños, bodas o eventos corporativos para garantizar que todo el mundo hable maravillas de ti.</p>
+            </div>
+
+            <form id="contactForm" onsubmit="enviarContacto(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 mb-1">Nombre Completo</label>
+                        <input id="contact-name" type="text" required placeholder="Tu nombre" class="w-full text-sm bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-200">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 mb-1">Correo Electrónico</label>
+                        <input id="contact-email" type="email" required placeholder="correo@ejemplo.com" class="w-full text-sm bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-200">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 mb-1">Mensaje o Propuesta</label>
+                    <textarea id="contact-message" required rows="4" placeholder="Cuéntanos cuántos invitados tienes o tu propuesta de debate culinario..." class="w-full text-sm bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-200"></textarea>
+                </div>
+                <button type="submit" class="w-full inline-flex justify-center items-center px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all">
+                    <i data-lucide="send" class="w-4 h-4 mr-2"></i>
+                    Enviar Mensaje de Contacto
+                </button>
+            </form>
+
+            <!-- Custom Notification (Replaces window.alert) -->
+            <div id="toast-notif" class="hidden mt-6 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2 bg-emerald-500 text-slate-950 rounded-xl">
+                        <i data-lucide="smile" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-emerald-400 text-sm">¡Mensaje Recibido!</h4>
+                        <p class="text-xs text-slate-300">Te contactaremos en menos de 24 horas hábiles. ¡Gracias por iniciar la conversación!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-16 border-t border-slate-900/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex justify-center items-center space-x-3">
+                <div class="p-2 bg-amber-500 text-slate-950 rounded-xl">
+                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                </div>
+                <span class="text-white font-extrabold text-sm tracking-widest">HAMBURGUESAS COMUNICATIVAS</span>
+            </div>
+            
+            <p class="text-xs max-w-md mx-auto leading-relaxed">
+                Una campaña culinaria diseñada para El Garaje. Si te quedas sin conversación es porque no has probado nuestra salsa secreta del debate.
+            </p>
+
+            <div class="flex justify-center space-x-6 text-xs font-semibold text-slate-400">
+                <a href="#experiencia" class="hover:text-amber-500 transition-colors">La Experiencia</a>
+                <span>•</span>
+                <a href="#ingredientes" class="hover:text-amber-500 transition-colors">Ingredientes</a>
+                <span>•</span>
+                <a href="#carta" class="hover:text-amber-500 transition-colors">La Carta</a>
+                <span>•</span>
+                <a href="https://www.instagram.com/hamburguesas.elgaraje/?hl=es" target="_blank" class="hover:text-amber-500 transition-colors">Instagram Oficial</a>
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 text-[10px] text-slate-600 space-y-1">
+                <p>© 2026 Hamburguesas Comunicativas - Todos los derechos reservados.</p>
+                <p>Las marcas registradas de El Garaje pertenecen a sus respectivos dueños.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Interacción -->
+    <script>
+        // Inicializar Iconos de Lucide
+        lucide.createIcons();
+
+        // Datos Persuasivos de Ingredientes
+        const ingredientData = {
+            carne: {
+                title: 'Carne Angus "Elocuente" (150g)',
+                category: '🥩 PROTEÍNA PREMIUM',
+                emoji: '🥩',
+                desc: 'Nuestra carne de res seleccionada cuenta con una maduración perfecta que intensifica los umami. Al morderla, se liberan jugos tan deliciosos que estimulan instantáneamente las glándulas de la creatividad y de la risa. ¡Imposible quedarte callado con semejante banquete en boca!',
+                effect: 'Aporta el hierro y la proteína necesarios para gesticular con máxima energía mientras relatas tu última aventura o debates por qué las papas a la francesa van con salsa de ajo.'
+            },
+            pan: {
+                title: 'Pan Brioche "Rompehielos"',
+                category: '🍞 HARINA ARTESANAL',
+                emoji: '🍞',
+                desc: 'Un pan tan suave, esponjoso y perfumado con mantequilla de primera calidad que prácticamente se derrite al tacto. Ofrece la base de carbohidratos perfecta que calienta el ánimo de cualquier comensal y ayuda a relajar los nervios del primer bocado.',
+                effect: 'Produce un efecto de confort hogareño instantáneo que te hace sentir en confianza. Ideal para deshacer tensiones en las citas más tímidas.'
+            },
+            queso: {
+                title: 'Cheddar "El Chismoso"',
+                category: '🧀 LÁCTEO FUNDIDO',
+                emoji: '🧀',
+                desc: 'Este delicioso queso cheddar madurado se funde sobre la carne caliente, extendiéndose por cada recoveco para unir todos los ingredientes. Es cremoso, intenso y tiene una gran personalidad que se niega a pasar desapercibida.',
+                effect: 'Su deliciosa viscosidad te obliga a saborear cada palabra. Actúa como el nexo integrador perfecto para fundir los temas de debate de tu mesa.'
+            },
+            tocineta: {
+                title: 'Tocineta "Murmuradora"',
+                category: '🥓 DELICIA AHUMADA',
+                emoji: '🥓',
+                desc: 'Ahúmada con maderas nobles y frita al punto exacto de crocancia. Cada crujido en tu boca es como una exclamación de sorpresa. El contraste salado despierta tus papilas y las invita a una fiesta de exclamaciones e historias exageradas.',
+                effect: 'Añade el elemento sorpresa del "crunch" que interrumpe cualquier silencio incómodo con una explosión de pura satisfacción salada.'
+            },
+            salsa: {
+                title: 'Salsa Secreta "El Debate"',
+                category: '🍯 ADEREZO DE LA CASA',
+                emoji: '🍯',
+                desc: 'Nuestra obra de arte secreta. Combina notas sutiles de especias exóticas, un toque picante imperceptible, dulce de miel de abejas y un toque ácido cítrico. Es un verdadero motor para el paladar que redefine todo lo que sabías de salsas.',
+                effect: 'Estimula receptores sensoriales que activan la memoria a largo plazo. Te encontrarás relatando anécdotas increíbles de la infancia después de probarla.'
+            }
+        };
+
+        // Función para cambiar la información del Menú de Ingredientes
+        function selectIngredient(key) {
+            // Remover estilos activos de todos los botones
+            const buttons = document.querySelectorAll('.ingredient-btn');
+            buttons.forEach(btn => {
+                btn.className = "ingredient-btn w-full text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-slate-950/40 border-slate-900 hover:border-slate-800 text-slate-300";
+            });
+
+            // Añadir estilos activos al botón presionado
+            const activeBtn = document.getElementById(`btn-${key}`);
+            if (activeBtn) {
+                activeBtn.className = "ingredient-btn w-full text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-amber-500/10 border-amber-500 text-white";
+            }
+
+            // Aplicar efecto de transición desvanecido a la tarjeta informativa
+            const display = document.getElementById('ingredient-display');
+            display.style.opacity = 0;
+            display.style.transform = "translateY(5px)";
+
+            setTimeout(() => {
+                // Actualizar Textos
+                document.getElementById('ing-category').innerText = ingredientData[key].category;
+                document.getElementById('ing-emoji').innerText = ingredientData[key].emoji;
+                document.getElementById('ing-title').innerText = ingredientData[key].title;
+                document.getElementById('ing-desc').innerText = ingredientData[key].desc;
+                document.getElementById('ing-effect').innerText = ingredientData[key].effect;
+
+                // Restaurar Transición
+                display.style.opacity = 1;
+                display.style.transform = "translateY(0px)";
+            }, 200);
+        }
+
+        // Seleccionar automáticamente al hacer clic en los botones de "Añadir al Pedido" de la Carta
+        function seleccionarEnCheckout(burgerName, price) {
+            const selectEl = document.getElementById('burger-select');
+            selectEl.value = burgerName;
+            
+            // Forzar actualización de cálculo
+            actualizarPrecioTotal();
+
+            // Mover la vista suavemente hasta el checkout
+            document.getElementById('pedido').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Cálculo de Precios en Vivo
+        function actualizarPrecioTotal() {
+            const burgerSelect = document.getElementById('burger-select');
+            const drinkSelect = document.getElementById('drink-select');
+            const extraSelect = document.getElementById('extra-select');
+
+            // Obtener el precio guardado en el atributo data-price
+            const burgerPrice = parseInt(burgerSelect.options[burgerSelect.selectedIndex].getAttribute('data-price')) || 0;
+            const drinkPrice = parseInt(drinkSelect.options[drinkSelect.selectedIndex].getAttribute('data-price')) || 0;
+            const extraPrice = parseInt(extraSelect.options[extraSelect.selectedIndex].getAttribute('data-price')) || 0;
+
+            const total = burgerPrice + drinkPrice + extraPrice;
+
+            // Formatear Moneda COP
+            const formatter = new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                minimumFractionDigits: 0
+            });
+
+            document.getElementById('total-display').innerText = formatter.format(total) + " COP";
+        }
+
+        // Envío de Pedidos por WhatsApp (Generador de Mensaje Codificado)
+        function enviarPedidoWhatsApp(event) {
+            event.preventDefault();
+
+            const burger = document.getElementById('burger-select').value;
+            const drink = document.getElementById('drink-select').value;
+            const extra = document.getElementById('extra-select').value;
+            const clientName = document.getElementById('order-name').value;
+            const address = document.getElementById('order-address').value;
+            const totalText = document.getElementById('total-display').innerText;
+
+            if (!burger) {
+                // Notificación simple personalizada
+                const selectEl = document.getElementById('burger-select');
+                selectEl.focus();
+                selectEl.classList.add('ring-2', 'ring-red-500');
+                setTimeout(() => selectEl.classList.remove('ring-2', 'ring-red-500'), 2500);
+                return;
+            }
+
+            // Construir el cuerpo del mensaje de forma ultra-persuasiva y ordenada
+            const mensaje = `¡Hola Hamburguesas Comunicativas! 🍔🗣️\n` +
+                            `Quiero ordenar mi dosis de elocuencia para hoy:\n\n` +
+                            `🍔 *Hamburguesa:* ${burger}\n` +
+                            `🥤 *Bebida:* ${drink}\n` +
+                            `➕ *Adicionales:* ${extra}\n\n` +
+                            `👤 *A nombre de:* ${clientName}\n` +
+                            `📍 *Dirección de envío:* ${address}\n\n` +
+                            `💰 *Total a pagar:* ${totalText}\n\n` +
+                            `¡Por favor confírmenme el pedido para ponernos a hablar lo antes posible! 🚀`;
+
+            // Número por defecto de El Garaje o de tu negocio (Formato internacional)
+            const phone = "573155551234"; // Reemplazable por tu número real de delivery
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`;
+
+            // Redirigir al usuario a WhatsApp
+            window.open(url, '_blank');
+        }
+
+        // Simular Envío de Formulario de Contacto
+        function enviarContacto(event) {
+            event.preventDefault();
+
+            // Desplegar notificación de éxito
+            const toast = document.getElementById('toast-notif');
+            toast.classList.remove('hidden');
+
+            // Resetear Formulario
+            document.getElementById('contactForm').reset();
+
+            // Hacer scroll suave para visualizar la alerta de éxito
+            toast.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Ocultar notificación luego de unos segundos
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
